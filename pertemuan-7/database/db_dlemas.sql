@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Bulan Mei 2024 pada 16.57
+-- Waktu pembuatan: 12 Bulan Mei 2024 pada 17.09
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.1.25
 
@@ -44,7 +44,9 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id`, `nama`, `nis`, `kelas`, `tglhir`, `tmptlhir`, `alamat`, `jk`, `agama`) VALUES
-(1, 'muqniansyah', 15220059, 1, '2004-01-01', 'bekasi', 'thb', 'cowo', 'islam');
+(1, 'muqniansyah', 15220059, 1, '2004-01-01', 'bekasi', 'thb', 'cowo', 'islam'),
+(2, 'aisyah', 15448892, 2, '2004-01-20', 'bogor', 'jalan bahagia', 'cewe', 'islam'),
+(3, 'asya', 15448894, 2, '2004-01-11', 'batam', 'jalan wonogiri', 'cewe', 'islam');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +66,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

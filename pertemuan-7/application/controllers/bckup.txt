@@ -1,0 +1,35 @@
+Fungsi dari public function __construct() { ... } dalam sebuah class di CodeIgniter adalah untuk membuat objek controller dengan melakukan inisialisasi atau persiapan yang diperlukan sebelum method lainnya dapat dijalankan.
+
+Mari kita pecahkan bagian ini:
+
+public function __construct() { ... }: Ini adalah konstruktor class, yang merupakan metode khusus dalam PHP yang akan dipanggil secara otomatis setiap kali objek dari class tersebut dibuat. Dalam hal ini, konstruktor digunakan untuk melakukan inisialisasi awal controller.
+
+parent::__construct();: Ini adalah panggilan ke konstruktor kelas induk (CI_Controller). Panggilan ini penting karena controller kita biasanya adalah turunan dari CI_Controller. Dengan melakukan panggilan ini, kita dapat memastikan bahwa konstruktor kelas induk dijalankan sebelum konstruktor kelas turunan, yang mungkin melakukan inisialisasi penting lainnya.
+
+$this->load->model('ModelSiswa');: Baris ini memuat model 'ModelSiswa' ke dalam controller. Ini penting karena model adalah komponen penting dalam aplikasi CodeIgniter yang memungkinkan kita untuk berinteraksi dengan basis data. Dengan memuat model ini di konstruktor, model tersebut akan tersedia untuk digunakan di seluruh controller tanpa perlu dimuat ulang setiap kali metode dipanggil.
+
+Jadi, secara keseluruhan, fungsi dari konstruktor ini adalah untuk memastikan bahwa setiap kali controller 'Admin' dibuat, model 'ModelSiswa' dimuat ke dalamnya sehingga model tersebut dapat digunakan di seluruh controller untuk berinteraksi dengan data siswa.
+
+
+
+----------------------------------------------------------------------
+Ketika Anda menggunakan $this->load->view('view-data', ['siswa_list' => $siswa_list]);, Anda sebenarnya memuat tampilan 'view-data.php' dan pada saat yang sama Anda memberikan data ke tampilan tersebut. Sekarang, mari kita pecah ini:
+
+view-data: Ini adalah nama file view yang akan dimuat.
+
+['siswa_list' => $siswa_list]: Ini adalah cara Anda memberikan data ke dalam tampilan. Ini adalah array asosiatif di mana 'siswa_list' adalah kunci atau nama variabel yang akan digunakan di dalam tampilan, dan $siswa_list adalah nilai atau data yang ingin Anda kirimkan ke tampilan.
+
+Sekarang, mengapa kita butuh 'siswa_list' di sini?
+
+Ketika Anda memuat tampilan 'view-data.php', Anda ingin menampilkan daftar siswa di dalamnya. Tetapi tampilan itu sendiri tidak tahu apa-apa tentang daftar siswa kecuali Anda memberitahunya. Itulah mengapa Anda memberikan data dalam bentuk array asosiatif, di mana kunci 'siswa_list' memberi tahu tampilan bahwa data yang dikirimkan adalah daftar siswa.
+
+Jadi, ketika Anda menulis kode di dalam 'view-data.php' seperti <?php foreach ($siswa_list as $siswa) : ?> ... <?php endforeach; ?>, Anda menggunakan kunci 'siswa_list' untuk mengakses daftar siswa yang dikirimkan dari controller. Ini memungkinkan Anda untuk menggunakan data siswa tersebut untuk menampilkan informasi yang sesuai dalam tampilan.
+
+Jadi, intinya adalah bahwa 'siswa_list' di sini adalah cara untuk mengidentifikasi dan memberi label pada data yang Anda kirimkan ke tampilan, sehingga tampilan tahu bagaimana menggunakan data tersebut.
+
+-----------------------------------------------
+public function simpanData($data) { ... }: Ini adalah method untuk menyimpan data baru ke dalam tabel 'siswa' dalam database. $data adalah array yang berisi data siswa yang akan disimpan. Dalam method ini, $this->db->insert('siswa',$data); digunakan untuk melakukan penyisipan data ke dalam tabel 'siswa' menggunakan CodeIgniter's Database Query Builder. Setelah data disisipkan, return $this->db->insert_id(); digunakan untuk mengembalikan ID dari baris yang baru saja disisipkan. Ini adalah ID yang secara otomatis dihasilkan oleh basis data (misalnya, kolom auto-increment dalam MySQL) untuk baris yang baru saja ditambahkan. Pengembalian ID ini berguna jika Anda ingin menggunakan ID ini untuk tujuan lain setelah menyimpan data.
+
+public function alldata(){ ... }: Ini adalah method yang digunakan untuk mengambil semua data siswa dari tabel 'siswa' dalam database. Dalam method ini, $this->db->get('siswa') digunakan untuk mendapatkan semua data dari tabel 'siswa'. Metode result_array() kemudian digunakan untuk mengembalikan hasil query dalam bentuk array asosiatif, di mana setiap elemen array mewakili satu baris dari hasil query. Akhirnya, return digunakan untuk mengembalikan array ini ke pemanggil method.
+
+Jadi, kesimpulannya, return $this->db->insert_id(); digunakan untuk mengembalikan ID dari baris yang baru saja disisipkan ke dalam tabel 'siswa', sedangkan return $this->db->get('siswa')->result_array(); digunakan untuk mengembalikan semua data siswa dari tabel 'siswa' dalam bentuk array asosiatif.

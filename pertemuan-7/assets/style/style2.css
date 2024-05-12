@@ -1,57 +1,56 @@
 body {
 	font-family: Arial, sans-serif;
-	background-color: #f0f0f0;
+	background-color: #f9f9f9;
 	margin: 0;
 	padding: 0;
 }
 
+/* Style untuk center */
 center {
 	margin-top: 50px;
 }
 
+/* Style untuk header */
+h1 {
+	text-align: center;
+	color: #333;
+}
+
+/* Style untuk tabel */
 table {
 	width: 80%;
-	margin: 0 auto;
-	background-color: #fff;
+	margin: 20px auto;
 	border-collapse: collapse;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.judul {
-	text-align: center;
-}
-
-th,
-td {
+/* Style untuk header kolom */
+th {
+	background-color: #4caf50;
+	color: #fff;
 	padding: 12px;
 	text-align: left;
-	border-bottom: 1px solid #ddd;
-	text-align: center;
 }
 
-th {
+/* Style untuk sel data */
+td {
+	padding: 8px;
+}
+
+/* Style untuk baris ganjil */
+tr:nth-child(odd) {
 	background-color: #f2f2f2;
 }
 
-hr {
-	border: 0;
-	border-top: 1px solid #ccc;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-.disable-line {
-	border: none;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
+/* Style untuk link kembali */
 a {
 	text-decoration: none;
-	color: #007bff;
+	color: #4caf50;
+	font-weight: bold;
+	transition: color 0.3s ease;
 }
 
 a:hover {
-	text-decoration: underline;
-	color: #0056b3;
+	color: #70e970;
 }
