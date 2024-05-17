@@ -1,0 +1,5 @@
+ada 4 latihan :
+1.) melakukan upload
+2.) melakukan download
+3.) melakukan uri segment
+4.) membuat library sendiri
