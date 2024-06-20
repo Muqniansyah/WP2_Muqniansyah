@@ -1,0 +1,13 @@
+autentifikasi controller
+
+
+    public function forgotPassword() {
+        // Handle logic for forgot password functionality here
+        // Misalnya kirim email reset password, tampilkan form reset password, dll
+        // Contoh sederhana hanya menampilkan halaman reset password
+        $data['judul'] = 'Forgot Password';
+        $this->load->view('templates/aute_header', $data);
+        $this->load->view('autentifikasi/lupaPassword');
+        $this->load->view('templates/aute_footer');
+    }
+    
